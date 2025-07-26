@@ -1,0 +1,16 @@
+{
+  "name": "vcet-alumni-portal",
+  "version": "1.0.0",
+  "description": "VCET Alumni and Placement Portal",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"npm run start\" \"cd frontend && npm start\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
