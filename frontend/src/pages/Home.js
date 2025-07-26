@@ -15,20 +15,20 @@ const recruiters = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/2560px-Tata_Consultancy_Services_old_logo.svg.png',
 ];
 
-const testimonials = [
-  {
-    name: 'S. Meena',
-    quote: 'VCET gave me the platform and confidence to achieve my dreams. The alumni network is amazing!',
-    photo: 'https://randomuser.me/api/portraits/women/68.jpg',
-    company: 'Google',
-  },
-  {
-    name: 'R. Arjun',
-    quote: 'The placement training and support from seniors helped me land my dream job.',
-    photo: 'https://randomuser.me/api/portraits/men/71.jpg',
-    company: 'Amazon',
-  },
-];
+// const testimonials = [
+//   {
+//     name: 'S. Meena',
+//     quote: 'VCET gave me the platform and confidence to achieve my dreams. The alumni network is amazing!',
+//     photo: 'https://randomuser.me/api/portraits/women/68.jpg',
+//     company: 'Google',
+//   },
+//   {
+//     name: 'R. Arjun',
+//     quote: 'The placement training and support from seniors helped me land my dream job.',
+//     photo: 'https://randomuser.me/api/portraits/men/71.jpg',
+//     company: 'Amazon',
+//   },
+// ];
 
 const sectionFadeProps = { timeout: 900, in: true, appear: true };
 
@@ -97,7 +97,7 @@ function Home() {
   }, []);
 
   return (
-    <Box sx={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%)', p: 0, position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%)', p: 0, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Soft background overlay for extra depth */}
       <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 70% 20%, #e3f0ff 0%, #fafcff 70%)', opacity: 0.5 }} />
 
@@ -257,30 +257,31 @@ function Home() {
       </Fade>
 
       {/* Alumni Testimonials */}
-      <Fade {...sectionFadeProps} style={{ transitionDelay: '400ms' }}>
-        <Box sx={{ mt: 6, px: { xs: 2, md: 8 }, pb: 8, position: 'relative', zIndex: 1 }}>
-          <Typography variant="h4" fontWeight={600} color="primary" gutterBottom align="center">
-            Alumni Testimonials
-          </Typography>
-          <Grid container spacing={3}>
-            {testimonials.map((alum, idx) => (
-              <Grow in={true} timeout={600 + idx * 200} key={idx}>
-                <Grid item xs={12} md={6} display="flex" justifyContent="center">
-                  <Card sx={{ borderRadius: 4, boxShadow: 2, p: 3, textAlign: 'center', background: '#f5faff', width: 350, transition: 'transform 0.2s, box-shadow 0.2s', ':hover': { transform: 'translateY(-8px) scale(1.03)', boxShadow: 6 } }}>
-                    <Avatar src={alum.photo} sx={{ width: 64, height: 64, mx: 'auto', mb: 1, transition: 'transform 0.2s', ':hover': { transform: 'scale(1.12)' } }} />
-                    <Typography fontWeight={600}>{alum.name}</Typography>
-                    <Chip label={alum.company} color="primary" size="small" sx={{ my: 1 }} />
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 1 }}>
-                      <FormatQuoteIcon color="primary" sx={{ mr: 1 }} />
-                      <Typography variant="body1" fontStyle="italic">{alum.quote}</Typography>
-                    </Box>
-                  </Card>
-                </Grid>
-              </Grow>
-            ))}
-          </Grid>
-        </Box>
-      </Fade>
+
+      {/* Footer */}
+      <Box component="footer" sx={{
+        width: '100%',
+        background: '#1976d2',
+        color: '#fff',
+        textAlign: 'center',
+        py: 3,
+        mt: 8,
+        fontSize: { xs: '0.95rem', md: '1.05rem' },
+        letterSpacing: 0.2,
+        zIndex: 2,
+        position: 'relative',
+      }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+          Velammal College of Engineering and Technology, Madurai
+        </Typography>
+        <Typography>
+           Madurai - Rameswaram High Road, Viraganoor, Madurai - 625009, Tamil Nadu, India
+        </Typography>
+        <Typography>Phone:+91-9994994991</Typography>
+        <Typography>
+          Website: <a href="https://www.vcet.ac.in" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', textDecoration: 'underline' }}>www.vcet.ac.in</a>
+        </Typography>
+      </Box>
     </Box>
   );
 }

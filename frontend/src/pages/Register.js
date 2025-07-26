@@ -24,6 +24,8 @@ function Register() {
       if (!res.ok) throw new Error(data.msg || 'Registration failed');
       localStorage.setItem('token', data.token);
       navigate('/dashboard');
+      // Reload the page to update navigation
+      window.location.reload();
     } catch (err) {
       setError(err.message);
     }
@@ -44,6 +46,20 @@ function Register() {
             <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
               Register
             </Button>
+            <Box sx={{ textAlign: 'center', mt: 2 }}>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                Already have an account?
+              </Typography>
+              <Button 
+                variant="outlined" 
+                color="primary" 
+                fullWidth 
+                onClick={() => navigate('/login')}
+                sx={{ fontWeight: 600 }}
+              >
+                Login
+              </Button>
+            </Box>
           </form>
         </CardContent>
       </Card>

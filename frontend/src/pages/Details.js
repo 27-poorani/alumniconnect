@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Card, CardContent, Grid, Avatar, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Box, Typography, Card, CardContent, Grid, Avatar, Alert, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 
 function Details() {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -26,6 +28,13 @@ function Details() {
     };
     fetchProfile();
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    navigate('/');
+    window.location.reload();
+  };
 
   return (
     <Box sx={{ minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%)' }}>
@@ -58,6 +67,11 @@ function Details() {
           ) : (
             <Typography align="center">No details found.</Typography>
           )}
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+            <Button variant="outlined" color="error" size="large" sx={{ px: 4, fontWeight: 700, borderRadius: 3 }} onClick={handleLogout}>
+              LOGOUT
+            </Button>
+          </Box>
         </CardContent>
       </Card>
     </Box>

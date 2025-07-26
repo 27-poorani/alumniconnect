@@ -31,6 +31,8 @@ function Login() {
       } else {
         navigate('/dashboard');
       }
+      // Reload the page to update navigation
+      window.location.reload();
     } catch (err) {
       setError(err.message);
     }

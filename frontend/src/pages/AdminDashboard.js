@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Card, CardContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Alert, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, TextField, Avatar, Grid, Chip, CircularProgress, Grow } from '@mui/material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import BusinessIcon from '@mui/icons-material/Business';
@@ -6,6 +7,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import { format } from 'date-fns';
 
 function AdminDashboard() {
+  const navigate = useNavigate();
   const [alumni, setAlumni] = useState([]);
   const [error, setError] = useState('');
   const [deleteId, setDeleteId] = useState(null);
@@ -371,6 +373,13 @@ function AdminDashboard() {
     setUploadingPhoto(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    navigate('/');
+    window.location.reload();
+  };
+
   // Remove the search bar and related filtering logic from the top students section.
   // Delete the studentSearch state, the TextField for search, and use topStudents directly for display.
 
@@ -386,9 +395,14 @@ function AdminDashboard() {
         <Grid item xs={12} md={8}>
           <Card sx={{ borderRadius: 6, boxShadow: 6, p: 3, background: '#fff', mb: 4 }}>
             <CardContent>
-              <Typography variant="h4" fontWeight={700} color="primary" gutterBottom align="center">
-                Admin Dashboard
-              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+                <Typography variant="h4" fontWeight={700} color="primary">
+                  Admin Dashboard
+                </Typography>
+                <Button variant="outlined" color="error" onClick={handleLogout} sx={{ fontWeight: 600 }}>
+                  LOGOUT
+                </Button>
+              </Box>
               {error ? (
                 <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>
               ) : (

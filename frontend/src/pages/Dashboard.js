@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Card, CardContent, Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Grid, Avatar, Snackbar, Alert, CircularProgress } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import InfoIcon from '@mui/icons-material/Info';
 
 function Dashboard() {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ batch: '', company: '', salary: '', designation: '', location: '', phone: '', linkedin: '' });
@@ -250,6 +252,13 @@ function Dashboard() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    navigate('/');
+    window.location.reload();
+  };
+
   return (
     <Box
       sx={{
@@ -407,8 +416,9 @@ function Dashboard() {
                   </Box>
                 )}
               </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 2 }}>
                 <Button variant="contained" color="primary" size="large" sx={{ px: 5, fontWeight: 700, borderRadius: 3, boxShadow: 2, py: 1.2, ':hover': { background: '#1976d2' } }} onClick={handleOpen}>ADD / EDIT DETAILS</Button>
+                <Button variant="outlined" color="error" size="large" sx={{ px: 5, fontWeight: 700, borderRadius: 3, boxShadow: 2, py: 1.2 }} onClick={handleLogout}>LOGOUT</Button>
               </Box>
             </>
           ) : (
