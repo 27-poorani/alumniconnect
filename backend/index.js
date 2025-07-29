@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 // CORS configuration
 const corsOptions = {
   origin: [
-    'https://alumniconnect-nnrd.vercel.app',
+    'https://your-frontend-name.onrender.com',
     'https://alumniconnect-1.onrender.com',
     'http://localhost:3000',
     'http://localhost:5000'
