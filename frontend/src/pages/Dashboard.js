@@ -32,7 +32,7 @@ function Dashboard() {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/alumni/dashboard', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/dashboard', {
         headers: { 'x-auth-token': token },
       });
       const data = await res.json();
@@ -52,7 +52,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/alumni/events');
+        const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/events');
         const data = await res.json();
         if (Array.isArray(data)) setEvents(data);
       } catch {}
@@ -105,14 +105,14 @@ function Dashboard() {
       const token = localStorage.getItem('token');
       const formData = new FormData();
       formData.append('photo', file);
-      const res = await fetch('http://localhost:5000/api/alumni/upload-photo', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/upload-photo', {
         method: 'POST',
         headers: { 'x-auth-token': token },
         body: formData,
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.msg || 'Failed to upload photo');
-      setForm((prev) => ({ ...prev, photo: `http://localhost:5000${data.url}` }));
+      setForm((prev) => ({ ...prev, photo: `https://alumniconnect-1.onrender.com${data.url}` }));
     } catch (err) {
       setError(err.message);
     }
@@ -125,7 +125,7 @@ function Dashboard() {
     setSuccess('');
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/alumni/details', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/details', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify(form),
@@ -148,14 +148,14 @@ function Dashboard() {
       const token = localStorage.getItem('token');
       const formData = new FormData();
       formData.append('attachment', file);
-      const res = await fetch('http://localhost:5000/api/alumni/post/upload-attachment', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/post/upload-attachment', {
         method: 'POST',
         headers: { 'x-auth-token': token },
         body: formData,
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.msg || 'Failed to upload attachment');
-      setPostAttachment(`http://localhost:5000${data.url}`);
+      setPostAttachment(`https://alumniconnect-1.onrender.com${data.url}`);
     } catch (err) {
       setError(err.message);
     }
@@ -169,7 +169,7 @@ function Dashboard() {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/alumni/post', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify({ content: postContent, attachment: postAttachment }),
@@ -193,14 +193,14 @@ function Dashboard() {
       const token = localStorage.getItem('token');
       const formData = new FormData();
       formData.append('attachment', file);
-      const res = await fetch('http://localhost:5000/api/alumni/post/upload-attachment', {
+      const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/post/upload-attachment', {
         method: 'POST',
         headers: { 'x-auth-token': token },
         body: formData,
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.msg || 'Failed to upload attachment');
-      setEditAttachment(`http://localhost:5000${data.url}`);
+      setEditAttachment(`https://alumniconnect-1.onrender.com${data.url}`);
     } catch (err) {
       setError(err.message);
     }
@@ -220,7 +220,7 @@ function Dashboard() {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/alumni/post/${editPost._id}`, {
+      const res = await fetch(`https://alumniconnect-1.onrender.com/api/alumni/post/${editPost._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify({ content: editContent, attachment: editAttachment }),
@@ -240,7 +240,7 @@ function Dashboard() {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/alumni/post/${id}`, {
+      const res = await fetch(`https://alumniconnect-1.onrender.com/api/alumni/post/${id}`, {
         method: 'DELETE',
         headers: { 'x-auth-token': token },
       });

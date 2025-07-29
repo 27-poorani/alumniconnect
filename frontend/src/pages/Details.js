@@ -15,7 +15,7 @@ function Details() {
       setError('');
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/alumni/dashboard', {
+        const res = await fetch('https://alumniconnect-1.onrender.com/api/alumni/dashboard', {
           headers: { 'x-auth-token': token },
         });
         const data = await res.json();
