@@ -58,8 +58,8 @@ function Register() {
                 onClick={() => navigate('/login')}
                 sx={{ fontWeight: 600 }}
               >
-                Login
-              </Button>
+              Login
+            </Button>
             </Box>
           </form>
         </CardContent>

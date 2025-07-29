@@ -29,7 +29,7 @@ function App() {
       setUserRole(null);
       navigate('/');
     };
-    return (
+  return (
       <AppBar position="static" color="default" elevation={1}>
         <Toolbar>
           <SchoolIcon sx={{ mr: 1, color: '#1976d2' }} />
@@ -42,23 +42,23 @@ function App() {
           {/* Show Register and Login only when not authenticated */}
           {!isAuthenticated && (
             <>
-              <Button color="primary" component={Link} to="/register" sx={{ mx: 1 }}>
-                Register
-              </Button>
-              <Button color="primary" component={Link} to="/login" sx={{ mx: 1 }}>
-                Login
-              </Button>
+          <Button color="primary" component={Link} to="/register" sx={{ mx: 1 }}>
+            Register
+          </Button>
+          <Button color="primary" component={Link} to="/login" sx={{ mx: 1 }}>
+            Login
+          </Button>
             </>
           )}
           {/* Show Dashboard and Profile only when authenticated and not admin */}
           {isAuthenticated && userRole !== 'admin' && (
             <>
-              <Button color="primary" component={Link} to="/dashboard" sx={{ mx: 1 }}>
-                Dashboard
-              </Button>
-              <Button color="primary" component={Link} to="/details" sx={{ mx: 1 }}>
-                Profile
-              </Button>
+          <Button color="primary" component={Link} to="/dashboard" sx={{ mx: 1 }}>
+            Dashboard
+          </Button>
+          <Button color="primary" component={Link} to="/details" sx={{ mx: 1 }}>
+            Profile
+          </Button>
               <Button color="primary" onClick={handleLogout} sx={{ mx: 1 }}>
                 Logout
               </Button>

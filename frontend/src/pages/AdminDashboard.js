@@ -397,8 +397,8 @@ function AdminDashboard() {
             <CardContent>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                 <Typography variant="h4" fontWeight={700} color="primary">
-                  Admin Dashboard
-                </Typography>
+                Admin Dashboard
+              </Typography>
                 <Button variant="outlined" color="error" onClick={handleLogout} sx={{ fontWeight: 600 }}>
                   LOGOUT
                 </Button>

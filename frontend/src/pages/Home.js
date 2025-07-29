@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Card, CardContent, Grid, Avatar, Chip, Paper, CircularProgress, Alert, Fade, Grow } from '@mui/material';
+import { Box, Typography, Button, Card, Grid, Avatar, Chip, Paper, CircularProgress, Alert, Fade, Grow } from '@mui/material';
 import BusinessIcon from '@mui/icons-material/Business';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import SchoolIcon from '@mui/icons-material/School';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const recruiters = [
   
@@ -97,7 +96,7 @@ function Home() {
   }, []);
 
   return (
-    <Box sx={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%)', p: 0, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%)', p: 0, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {/* Soft background overlay for extra depth */}
       <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 70% 20%, #e3f0ff 0%, #fafcff 70%)', opacity: 0.5 }} />
 
