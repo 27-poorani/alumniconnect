@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vcet-alumni-portal
+    name: vcet-alumni-frontend
     env: node
     plan: free
     buildCommand: yarn install && yarn build
@@ -9,6 +9,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: REACT_APP_API_URL
-        value: https://your-backend-url.onrender.com
+        value: https://alumniconnect-1.onrender.com
     healthCheckPath: /
     autoDeploy: true 
