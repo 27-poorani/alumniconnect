@@ -15,7 +15,7 @@ function Details() {
       setError('');
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/alumni/dashboard', {
+        const res = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/alumni/dashboard', {
           headers: { 'x-auth-token': token },
         });
         const data = await res.json();

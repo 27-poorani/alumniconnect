@@ -49,7 +49,7 @@ function Home() {
       setLoading(true);
       setError('');
       try {
-        const res = await fetch('http://localhost:5000/api/top-students');
+        const res = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/top-students');
         const data = await res.json();
         if (!res.ok) throw new Error(data.msg || 'Failed to fetch top students');
         setTopStudents(data);
@@ -66,7 +66,7 @@ function Home() {
       setLoadingHighlights(true);
       setErrorHighlights('');
       try {
-        const res = await fetch('http://localhost:5000/api/placement-highlights');
+        const res = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/placement-highlights');
         const data = await res.json();
         if (!res.ok) throw new Error(data.msg || 'Failed to fetch highlights');
         setHighlights(data);
@@ -83,7 +83,7 @@ function Home() {
       setLoadingPosts(true);
       setErrorPosts('');
       try {
-        const res = await fetch('http://localhost:5000/api/alumni/posts');
+        const res = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/alumni/posts');
         const data = await res.json();
         if (!res.ok) throw new Error(data.msg || 'Failed to fetch posts');
         setAlumniPosts(data);
