@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 5000;
 // CORS configuration
 const corsOptions = {
   origin: [
-    'https://alumniconnect-yt.onrender.com',
-    'http://localhost:3000',
+    'https://alumniconnect-4y.onrender.com',      // your frontend
+    'https://alumniconnect-ytt.onrender.com',     // your backend
+    'http://localhost:3000',                      // local dev
     'http://localhost:5000'
   ],
   credentials: true,
